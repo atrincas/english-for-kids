@@ -12,6 +12,7 @@ class Quiz extends React.Component {
 			score: 0,
 			finsihed: false
 		};
+		this.checkAnswer = this.checkAnswer.bind(this);
 	}
 
 	componentWillMount() {
@@ -40,11 +41,29 @@ class Quiz extends React.Component {
 		return arr;
 	}
 
+	checkAnswer(e) {
+		let answer = e.currentTarget.innerText,
+			{ currentWord } = this.state;
+
+		if (answer === currentWord) {
+			console.log("correct answer!");
+		} else {
+			console.log("wrong answer!");
+		}
+	}
+
 	render() {
 		const { currentWord, img } = this.state;
 		const options = this.shuffle(this.state.options);
 
-		return <Question word={currentWord} imgUrl={img} options={options} />;
+		return (
+			<Question
+				word={currentWord}
+				imgUrl={img}
+				options={options}
+				checkAnswer={this.checkAnswer}
+			/>
+		);
 	}
 }
 
