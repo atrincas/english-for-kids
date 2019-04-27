@@ -57,7 +57,7 @@ class Quiz extends React.Component {
 	}
 
 	nextQuestion() {
-		let { nr, total, score } = this.state;
+		let { nr, total } = this.state;
 
 		// Check if quiz is completed:
 		if (nr === total) {
