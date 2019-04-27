@@ -49,10 +49,10 @@ class Quiz extends React.Component {
 		if (answer === currentWord) {
 			console.log(`${answer} is the right answer!`);
 			this.setState({ score: this.state.score + 1 });
-			setTimeout(this.nextQuestion, 1000);
+			this.nextQuestion();
 		} else {
 			console.log(`${answer} is the wrong answer!`);
-			setTimeout(this.nextQuestion, 1000);
+			this.nextQuestion();
 		}
 	}
 
