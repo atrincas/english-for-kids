@@ -29,3 +29,9 @@ img {
 	background: gray;
 	cursor: pointer;
 }
+
+.completed {
+	font-size: 1.5rem;
+    width: 500px;
+    margin: 20% auto;
+}

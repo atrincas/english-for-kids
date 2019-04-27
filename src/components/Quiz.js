@@ -10,7 +10,7 @@ class Quiz extends React.Component {
 			nr: 0,
 			total: data.length,
 			score: 0,
-			finsihed: false
+			completed: false
 		};
 		this.checkAnswer = this.checkAnswer.bind(this);
 		this.nextQuestion = this.nextQuestion.bind(this);
@@ -59,10 +59,10 @@ class Quiz extends React.Component {
 	nextQuestion() {
 		let { nr, total, score } = this.state;
 
-		// Check if quiz is finsihed:
+		// Check if quiz is completed:
 		if (nr === total) {
 			this.setState({
-				finsihed: true
+				completed: true
 			});
 		} else {
 			// Assign values to state for the next word:
@@ -71,8 +71,15 @@ class Quiz extends React.Component {
 	}
 
 	render() {
-		const { currentWord, img } = this.state;
+		const { currentWord, img, completed, score, total } = this.state;
 		const options = this.shuffle(this.state.options);
+
+		if (completed)
+			return (
+				<div className="completed">
+					Quiz completed, you got {score} out of {total} right!
+				</div>
+			);
 
 		return (
 			<Question
