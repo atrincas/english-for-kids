@@ -5,7 +5,8 @@ class Question extends React.PureComponent {
 		const { imgUrl, options, checkAnswer } = this.props;
 
 		return (
-			<React.Fragment>
+			<div className="container">
+				<h1>Choose the right color</h1>
 				<img src={imgUrl} alt="word" />
 				<ul className="options">
 					{options.map((option, i) => {
@@ -16,7 +17,7 @@ class Question extends React.PureComponent {
 						);
 					})}
 				</ul>
-			</React.Fragment>
+			</div>
 		);
 	}
 }
