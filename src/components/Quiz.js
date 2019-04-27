@@ -13,6 +13,7 @@ class Quiz extends React.Component {
 			finsihed: false
 		};
 		this.checkAnswer = this.checkAnswer.bind(this);
+		this.nextQuestion = this.nextQuestion.bind(this);
 	}
 
 	componentWillMount() {
@@ -46,9 +47,26 @@ class Quiz extends React.Component {
 			{ currentWord } = this.state;
 
 		if (answer === currentWord) {
-			console.log("correct answer!");
+			console.log(`${answer} is the right answer!`);
+			this.setState({ score: this.state.score + 1 });
+			setTimeout(this.nextQuestion, 1000);
 		} else {
-			console.log("wrong answer!");
+			console.log(`${answer} is the wrong answer!`);
+			setTimeout(this.nextQuestion, 1000);
+		}
+	}
+
+	nextQuestion() {
+		let { nr, total, score } = this.state;
+
+		// Check if quiz is finsihed:
+		if (nr === total) {
+			this.setState({
+				finsihed: true
+			});
+		} else {
+			// Assign values to state for the next word:
+			this.createNewQuestion(nr);
 		}
 	}
 
