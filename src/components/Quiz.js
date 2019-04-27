@@ -1,6 +1,7 @@
 import React from "react";
 
 import data from "../data/data";
+import Question from "./Question";
 
 class Quiz extends React.Component {
 	constructor(props) {
@@ -27,8 +28,23 @@ class Quiz extends React.Component {
 		});
 	}
 
+	// Shuffle the array of options:
+	shuffle(arr) {
+		let j, x, i;
+		for (i = arr.length - 1; i > 0; i--) {
+			j = Math.floor(Math.random() * (i + 1));
+			x = arr[i];
+			arr[i] = arr[j];
+			arr[j] = x;
+		}
+		return arr;
+	}
+
 	render() {
-		return <div />;
+		const { currentWord, img } = this.state;
+		const options = this.shuffle(this.state.options);
+
+		return <Question word={currentWord} imgUrl={img} options={options} />;
 	}
 }
 
