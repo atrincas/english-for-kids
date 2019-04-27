@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
+
+import Quiz from "./components/Quiz";
 
 function App() {
-  return (
-    <div></div>
-  );
+	return <Quiz />;
 }
 
 export default App;
