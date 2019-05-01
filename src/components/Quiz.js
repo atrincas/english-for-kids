@@ -3,6 +3,8 @@ import React from "react";
 import data from "../data/data";
 import Question from "./Question";
 
+
+
 class Quiz extends React.Component {
 	constructor(props) {
 		super(props);
@@ -76,10 +78,12 @@ class Quiz extends React.Component {
 
 		if (completed)
 			return (
-				<div className="completed">
-					Quiz completed, you got {score} out of {total} right!
+				<div className="resultImage">
+					<br style={{marginBottom: "10em"}}></br>
+					<div><br></br>Quiz completed, you got {score} out of {total} right!</div>		
 				</div>
-			);
+				
+			);	
 
 		return (
 			<Question
@@ -93,3 +97,4 @@ class Quiz extends React.Component {
 }
 
 export default Quiz;
+
