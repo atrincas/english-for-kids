@@ -2,7 +2,13 @@
 	width: 70%;
 	margin:auto;
 }
-
+html { 
+  background: url('./frame.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .bgImage {	
 	padding: 0;	
 	background-image: url("./frame.jpg");
