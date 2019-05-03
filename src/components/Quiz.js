@@ -1,6 +1,6 @@
 import React from "react";
 
-import data from "../data/data";
+import {colors} from "../data/data";
 import Question from "./Question";
 
 
@@ -10,7 +10,7 @@ class Quiz extends React.Component {
 		super(props);
 		this.state = {
 			nr: 0,
-			total: data.length,
+			total: colors.length,
 			score: 0,
 			completed: false
 		};
@@ -25,9 +25,9 @@ class Quiz extends React.Component {
 
 	createNewQuestion(nr) {
 		this.setState({
-			currentWord: data[nr].word,
-			img: data[nr].img,
-			options: data[nr].options,
+			currentWord: colors[nr].word,
+			img: colors[nr].img,
+			options: colors[nr].options,
 			nr: this.state.nr + 1
 		});
 	}
