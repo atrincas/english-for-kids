@@ -11,7 +11,7 @@ class Question extends React.PureComponent {
 				<ul className="options">
 					{options.map((option, i) => {
 						return (
-							<li key={i} onClick={checkAnswer}>
+							<li key={i} id={option} onClick={checkAnswer}>
 								{option}
 							</li>
 						);

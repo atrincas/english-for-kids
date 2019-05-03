@@ -36,3 +36,12 @@ img {
     width: 500px;
     margin: 20% auto;
 }
+
+.options .right-answer {
+	background-color: green;
+	transition: background-color .1s;
+}
+
+.options .wrong-answer {
+	background-color: red;
+}

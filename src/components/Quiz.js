@@ -49,10 +49,26 @@ class Quiz extends React.Component {
 		if (answer === currentWord) {
 			console.log(`${answer} is the right answer!`);
 			this.setState({ score: this.state.score + 1 });
-			this.nextQuestion();
+			// Change color of border to green buttons and image:
+			// Set timeout(Change the classname of clicked item to 'green',1000).
+			let el = document.getElementById(answer);
+			el.classList.add('right-answer')
+			setTimeout(() => {
+			el.classList.remove('right-answer');
+  			this.nextQuestion();
+			}, 2000)
+			
 		} else {
 			console.log(`${answer} is the wrong answer!`);
+			// Change color of border to red buttons and image:
+			// Change the classname of clicked item to 'red'
+			let el = document.getElementById(answer);
+			el.classList.add('wrong-answer')
+			setTimeout(() => {
+			el.classList.remove('wrong-answer');
 			this.nextQuestion();
+			}, 2000);
+			
 		}
 	}
 
