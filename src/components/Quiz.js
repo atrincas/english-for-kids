@@ -9,7 +9,6 @@ class Quiz extends React.Component {
 		this.state = {
 			nr: 0,
 			total: colors.length,
-			score: 0,
 			completed: false
 		};
 		this.checkAnswer = this.checkAnswer.bind(this);
@@ -51,7 +50,7 @@ class Quiz extends React.Component {
 			{ currentWord } = this.state;
 
 		if (answer === currentWord) {
-			this.setState({ score: this.state.score + 1, correctAnswer: true });
+			this.setState({ correctAnswer: true });
 			setTimeout(() => {
 				element.classList.toggle("correct-answer");
 				this.nextQuestion();
@@ -88,8 +87,6 @@ class Quiz extends React.Component {
 			correctAnswer,
 			wrongAnswer,
 			completed,
-			score,
-			total,
 			options
 		} = this.state;
 
@@ -99,7 +96,7 @@ class Quiz extends React.Component {
 					<br style={{ marginBottom: "10em" }} />
 					<div>
 						<br />
-						Quiz completed, you got {score} out of {total} right!
+						Quiz completed!
 					</div>
 				</div>
 			);
