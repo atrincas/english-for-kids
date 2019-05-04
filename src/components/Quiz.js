@@ -63,7 +63,7 @@ class Quiz extends React.Component {
 				element.classList.toggle("wrong-answer");
 				this.setState({ wrongAnswer: false });
 				this.nextQuestion();
-			}, 1000);
+			}, 750);
 			element.classList.toggle("wrong-answer");
 		}
 	}
