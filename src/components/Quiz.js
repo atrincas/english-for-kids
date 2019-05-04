@@ -1,9 +1,7 @@
 import React from "react";
 
-import {colors} from "../data/data";
+import { colors } from "../data/data";
 import Question from "./Question";
-
-
 
 class Quiz extends React.Component {
 	constructor(props) {
@@ -16,6 +14,10 @@ class Quiz extends React.Component {
 		};
 		this.checkAnswer = this.checkAnswer.bind(this);
 		this.nextQuestion = this.nextQuestion.bind(this);
+	}
+
+	componentDidUpdate() {
+		console.log("didupdate");
 	}
 
 	componentWillMount() {
@@ -46,12 +48,17 @@ class Quiz extends React.Component {
 
 	checkAnswer(e) {
 		let answer = e.currentTarget.innerText,
+			element = document.getElementById(answer),
 			{ currentWord } = this.state;
 
 		if (answer === currentWord) {
-			console.log(`${answer} is the right answer!`);
+			setTimeout(() => {
+				element.classList.toggle("correct-answer");
+				this.nextQuestion();
+			}, 1500);
+			console.log("after timeout");
+			element.classList.toggle("correct-answer");
 			this.setState({ score: this.state.score + 1 });
-			this.nextQuestion();
 		} else {
 			console.log(`${answer} is the wrong answer!`);
 			this.nextQuestion();
@@ -79,11 +86,13 @@ class Quiz extends React.Component {
 		if (completed)
 			return (
 				<div className="resultImage">
-					<br style={{marginBottom: "10em"}}></br>
-					<div><br></br>Quiz completed, you got {score} out of {total} right!</div>		
+					<br style={{ marginBottom: "10em" }} />
+					<div>
+						<br />
+						Quiz completed, you got {score} out of {total} right!
+					</div>
 				</div>
-				
-			);	
+			);
 
 		return (
 			<Question
@@ -97,4 +106,3 @@ class Quiz extends React.Component {
 }
 
 export default Quiz;
-
