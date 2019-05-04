@@ -110,7 +110,7 @@ class Quiz extends React.Component {
 				imgUrl={img}
 				options={options}
 				correctAnswer={correctAnswer}
-				wrongAnswer={this.wrongAnswer}
+				wrongAnswer={wrongAnswer}
 				checkAnswer={this.checkAnswer}
 			/>
 		);
