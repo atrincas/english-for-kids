@@ -89,7 +89,9 @@ class Quiz extends React.Component {
 			correctAnswer,
 			wrongAnswer,
 			completed,
-			options
+			options,
+			score,
+			total
 		} = this.state;
 
 		if (completed)
