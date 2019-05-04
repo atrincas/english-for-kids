@@ -9,6 +9,7 @@ class Quiz extends React.Component {
 		this.state = {
 			nr: 0,
 			total: colors.length,
+			score: 0
 			completed: false
 		};
 		this.checkAnswer = this.checkAnswer.bind(this);
