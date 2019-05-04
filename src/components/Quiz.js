@@ -100,7 +100,7 @@ class Quiz extends React.Component {
 					<br style={{ marginBottom: "10em" }} />
 					<div>
 						<br />
-						Quiz completed!
+						Quiz completed! You got { score } out of { total } right!
 					</div>
 				</div>
 			);
