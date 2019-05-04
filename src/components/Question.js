@@ -2,7 +2,13 @@ import React from "react";
 
 class Question extends React.PureComponent {
 	render() {
-		const { imgUrl, options, checkAnswer, correctAnswer } = this.props;
+		const {
+			imgUrl,
+			options,
+			checkAnswer,
+			correctAnswer,
+			wrongAnswer
+		} = this.props;
 
 		return (
 			<div className="bgImage">
@@ -11,7 +17,13 @@ class Question extends React.PureComponent {
 					<h1>Choose the right color</h1>
 					<img
 						src={imgUrl}
-						className={correctAnswer ? "correct-answer" : null}
+						className={
+							correctAnswer
+								? "correct-answer"
+								: wrongAnswer
+								? "wrong-answer"
+								: null
+						}
 						alt="word"
 					/>
 					<ul className="options">

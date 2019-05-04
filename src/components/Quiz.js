@@ -27,6 +27,7 @@ class Quiz extends React.Component {
 			currentWord: colors[nr].word,
 			img: colors[nr].img,
 			correctAnswer: false,
+			wrongAnswer: false,
 			options: this.shuffle(colors[nr].options),
 			nr: this.state.nr + 1
 		});
@@ -57,8 +58,12 @@ class Quiz extends React.Component {
 			}, 1500);
 			element.classList.toggle("correct-answer");
 		} else {
-			console.log(`${answer} is the wrong answer!`);
-			this.nextQuestion();
+			this.setState({ wrongAnswer: true });
+			setTimeout(() => {
+				element.classList.toggle("wrong-answer");
+				this.nextQuestion();
+			}, 1500);
+			element.classList.toggle("wrong-answer");
 		}
 	}
 
@@ -81,6 +86,7 @@ class Quiz extends React.Component {
 			currentWord,
 			img,
 			correctAnswer,
+			wrongAnswer,
 			completed,
 			score,
 			total,
@@ -104,6 +110,7 @@ class Quiz extends React.Component {
 				imgUrl={img}
 				options={options}
 				correctAnswer={correctAnswer}
+				wrongAnswer={this.wrongAnswer}
 				checkAnswer={this.checkAnswer}
 			/>
 		);
