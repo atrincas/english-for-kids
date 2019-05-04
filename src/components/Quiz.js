@@ -51,8 +51,7 @@ class Quiz extends React.Component {
 			{ currentWord } = this.state;
 
 		if (answer === currentWord) {
-			this.setState({ score: this.state.score + 1 });
-			this.setState({ correctAnswer: true });
+			this.setState({ score: this.state.score + 1, correctAnswer: true });
 			setTimeout(() => {
 				element.classList.toggle("correct-answer");
 				this.nextQuestion();
