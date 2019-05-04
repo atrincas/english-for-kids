@@ -1,9 +1,7 @@
 import React from "react";
 
-import {colors} from "../data/data";
+import { colors } from "../data/data";
 import Question from "./Question";
-
-
 
 class Quiz extends React.Component {
 	constructor(props) {
@@ -11,7 +9,7 @@ class Quiz extends React.Component {
 		this.state = {
 			nr: 0,
 			total: colors.length,
-			score: 0,
+			score: 0
 			completed: false
 		};
 		this.checkAnswer = this.checkAnswer.bind(this);
@@ -24,10 +22,13 @@ class Quiz extends React.Component {
 	}
 
 	createNewQuestion(nr) {
+		console.log("newquestion");
 		this.setState({
 			currentWord: colors[nr].word,
 			img: colors[nr].img,
-			options: colors[nr].options,
+			correctAnswer: false,
+			wrongAnswer: false,
+			options: this.shuffle(colors[nr].options),
 			nr: this.state.nr + 1
 		});
 	}
@@ -46,15 +47,25 @@ class Quiz extends React.Component {
 
 	checkAnswer(e) {
 		let answer = e.currentTarget.innerText,
+			element = document.getElementById(answer),
 			{ currentWord } = this.state;
 
 		if (answer === currentWord) {
-			console.log(`${answer} is the right answer!`);
-			this.setState({ score: this.state.score + 1 });
-			this.nextQuestion();
+                        this.setState({ score: this.state.score + 1 });
+			this.setState({ correctAnswer: true });
+			setTimeout(() => {
+				element.classList.toggle("correct-answer");
+				this.nextQuestion();
+			}, 750);
+			element.classList.toggle("correct-answer");
 		} else {
-			console.log(`${answer} is the wrong answer!`);
-			this.nextQuestion();
+			this.setState({ wrongAnswer: true });
+			setTimeout(() => {
+				element.classList.toggle("wrong-answer");
+				this.setState({ wrongAnswer: false });
+				this.nextQuestion();
+			}, 750);
+			element.classList.toggle("wrong-answer");
 		}
 	}
 
@@ -73,23 +84,35 @@ class Quiz extends React.Component {
 	}
 
 	render() {
-		const { currentWord, img, completed, score, total } = this.state;
-		const options = this.shuffle(this.state.options);
+		const {
+			currentWord,
+			img,
+			correctAnswer,
+			wrongAnswer,
+			completed,
+			options,
+			score,
+			total
+		} = this.state;
 
 		if (completed)
 			return (
 				<div className="resultImage">
-					<br style={{marginBottom: "10em"}}></br>
-					<div><br></br>Quiz completed, you got {score} out of {total} right!</div>		
+					<br style={{ marginBottom: "10em" }} />
+					<div>
+						<br />
+						Quiz completed! You got { score } out of { total } right!
+					</div>
 				</div>
-				
-			);	
+			);
 
 		return (
 			<Question
 				word={currentWord}
 				imgUrl={img}
 				options={options}
+				correctAnswer={correctAnswer}
+				wrongAnswer={wrongAnswer}
 				checkAnswer={this.checkAnswer}
 			/>
 		);
@@ -97,4 +120,3 @@ class Quiz extends React.Component {
 }
 
 export default Quiz;
-

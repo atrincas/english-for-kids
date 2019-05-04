@@ -9,16 +9,6 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-.bgImage {	
-	padding: 0;	
-	background-image: url("./frame.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	height: 710px;
-	width: 100%
-  }
-
 
 h1 {
 	margin-top: 0px;
@@ -104,7 +94,26 @@ img {
   } 
 
 
+/* CORRECT ANSWER */
+.correct-answer {
+	background: green;
+	border-color: green;
+}
 
-  
+.correct-answer:hover {
+	background: green;
+	border-color: green;
+}
+
+/* WRONG ANSWER */
+.wrong-answer {
+	background: red;
+	border-color: red;
+}
+
+.wrong-answer:hover {
+	background: red;
+	border-color: red;
+}
   
   
