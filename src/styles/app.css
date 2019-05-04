@@ -114,5 +114,16 @@ img {
 	background: green;
 	border-color: green;
 }
+
+/* WRONG ANSWER */
+.wrong-answer {
+	background: red;
+	border-color: red;
+}
+
+.wrong-answer:hover {
+	background: red;
+	border-color: red;
+}
   
   
