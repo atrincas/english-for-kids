@@ -16,20 +16,18 @@ class Quiz extends React.Component {
 		this.nextQuestion = this.nextQuestion.bind(this);
 	}
 
-	componentDidUpdate() {
-		console.log("didupdate");
-	}
-
 	componentWillMount() {
 		let { nr } = this.state;
 		this.createNewQuestion(nr);
 	}
 
 	createNewQuestion(nr) {
+		console.log("newquestion");
 		this.setState({
 			currentWord: colors[nr].word,
 			img: colors[nr].img,
-			options: colors[nr].options,
+			correctAnswer: false,
+			options: this.shuffle(colors[nr].options),
 			nr: this.state.nr + 1
 		});
 	}
@@ -52,13 +50,12 @@ class Quiz extends React.Component {
 			{ currentWord } = this.state;
 
 		if (answer === currentWord) {
+			this.setState({ score: this.state.score + 1, correctAnswer: true });
 			setTimeout(() => {
 				element.classList.toggle("correct-answer");
 				this.nextQuestion();
 			}, 1500);
-			console.log("after timeout");
 			element.classList.toggle("correct-answer");
-			this.setState({ score: this.state.score + 1 });
 		} else {
 			console.log(`${answer} is the wrong answer!`);
 			this.nextQuestion();
@@ -80,8 +77,15 @@ class Quiz extends React.Component {
 	}
 
 	render() {
-		const { currentWord, img, completed, score, total } = this.state;
-		const options = this.shuffle(this.state.options);
+		const {
+			currentWord,
+			img,
+			correctAnswer,
+			completed,
+			score,
+			total,
+			options
+		} = this.state;
 
 		if (completed)
 			return (
@@ -99,6 +103,7 @@ class Quiz extends React.Component {
 				word={currentWord}
 				imgUrl={img}
 				options={options}
+				correctAnswer={correctAnswer}
 				checkAnswer={this.checkAnswer}
 			/>
 		);

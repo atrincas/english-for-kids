@@ -2,14 +2,18 @@ import React from "react";
 
 class Question extends React.PureComponent {
 	render() {
-		const { imgUrl, options, checkAnswer } = this.props;
+		const { imgUrl, options, checkAnswer, correctAnswer } = this.props;
 
 		return (
 			<div className="bgImage">
 				<br style={{ marginBottom: "8em" }} />
 				<div className="container">
 					<h1>Choose the right color</h1>
-					<img src={imgUrl} alt="word" />
+					<img
+						src={imgUrl}
+						className={correctAnswer ? "correct-answer" : null}
+						alt="word"
+					/>
 					<ul className="options">
 						{options.map((option, i) => {
 							return (
