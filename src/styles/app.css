@@ -104,7 +104,15 @@ img {
   } 
 
 
+/* CORRECT ANSWER */
+.correct-answer {
+	background: green;
+	border-color: green;
+}
 
-  
+.correct-answer:hover {
+	background: green;
+	border-color: green;
+}
   
   
