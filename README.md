@@ -35,6 +35,8 @@ Check out: **[requirements.md](./requirements.md)**
 
 - **[Feature/display quiz questions](https://github.com/atrincas/english-for-kids/pull/2)**
 - **[Feature/styles added to app](https://github.com/atrincas/english-for-kids/pull/3)**
+- **[Feature/data added to app](https://github.com/atrincas/english-for-kids/tree/feature/data)**
+- **[Feature/feedback for the quiz questions added](https://github.com/atrincas/english-for-kids/tree/feature/feedback-quiz)**
 
 ## Our git workflow
 
@@ -58,5 +60,5 @@ We try to break down the tasks for the project and also we try to build app in a
 
 In order to accomplish our tasks in a proper way we have created a trello board. Also another reason why we created the trello board is to clarify the collaboration process.
 
-**[Check out my trelloboard here](https://trello.com/b/bqk8Skpf/learnenglishapp)**
+**[Check out our trelloboard here](https://trello.com/b/bqk8Skpf/learnenglishapp)**
 
