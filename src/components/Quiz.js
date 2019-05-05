@@ -1,6 +1,6 @@
 import React from "react";
 
-import data from "../data/data";
+import { colors } from "../data/data";
 import Question from "./Question";
 
 class Quiz extends React.Component {
@@ -8,7 +8,7 @@ class Quiz extends React.Component {
 		super(props);
 		this.state = {
 			nr: 0,
-			total: data.length,
+			total: colors.length,
 			score: 0,
 			completed: false
 		};
@@ -22,10 +22,13 @@ class Quiz extends React.Component {
 	}
 
 	createNewQuestion(nr) {
+		console.log("newquestion");
 		this.setState({
-			currentWord: data[nr].word,
-			img: data[nr].img,
-			options: data[nr].options,
+			currentWord: colors[nr].word,
+			img: colors[nr].img,
+			correctAnswer: false,
+			wrongAnswer: false,
+			options: this.shuffle(colors[nr].options),
 			nr: this.state.nr + 1
 		});
 	}
@@ -44,31 +47,24 @@ class Quiz extends React.Component {
 
 	checkAnswer(e) {
 		let answer = e.currentTarget.innerText,
+			element = document.getElementById(answer),
 			{ currentWord } = this.state;
 
 		if (answer === currentWord) {
-			console.log(`${answer} is the right answer!`);
-			this.setState({ score: this.state.score + 1 });
-			// Change color of border to green buttons and image:
-			// Set timeout(Change the classname of clicked item to 'green',1000).
-			let el = document.getElementById(answer);
-			el.classList.add('right-answer')
+			this.setState({ score: this.state.score + 1, correctAnswer: true });
 			setTimeout(() => {
-			el.classList.remove('right-answer');
-  			this.nextQuestion();
-			}, 2000)
-			
+				element.classList.toggle("correct-answer");
+				this.nextQuestion();
+			}, 750);
+			element.classList.toggle("correct-answer");
 		} else {
-			console.log(`${answer} is the wrong answer!`);
-			// Change color of border to red buttons and image:
-			// Change the classname of clicked item to 'red'
-			let el = document.getElementById(answer);
-			el.classList.add('wrong-answer')
+			this.setState({ wrongAnswer: true });
 			setTimeout(() => {
-			el.classList.remove('wrong-answer');
-			this.nextQuestion();
-			}, 2000);
-			
+				element.classList.toggle("wrong-answer");
+				this.setState({ wrongAnswer: false });
+				this.nextQuestion();
+			}, 750);
+			element.classList.toggle("wrong-answer");
 		}
 	}
 
@@ -87,13 +83,25 @@ class Quiz extends React.Component {
 	}
 
 	render() {
-		const { currentWord, img, completed, score, total } = this.state;
-		const options = this.shuffle(this.state.options);
+		const {
+			currentWord,
+			img,
+			correctAnswer,
+			wrongAnswer,
+			completed,
+			options,
+			score,
+			total
+		} = this.state;
 
 		if (completed)
 			return (
-				<div className="completed">
-					Quiz completed, you got {score} out of {total} right!
+				<div className="resultImage">
+					<br style={{ marginBottom: "10em" }} />
+					<div>
+						<br />
+						Quiz completed! You got {score} out of {total} right!
+					</div>
 				</div>
 			);
 
@@ -102,6 +110,8 @@ class Quiz extends React.Component {
 				word={currentWord}
 				imgUrl={img}
 				options={options}
+				correctAnswer={correctAnswer}
+				wrongAnswer={wrongAnswer}
 				checkAnswer={this.checkAnswer}
 			/>
 		);
