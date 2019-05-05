@@ -22,7 +22,6 @@ class Quiz extends React.Component {
 	}
 
 	createNewQuestion(nr) {
-		console.log("newquestion");
 		this.setState({
 			currentWord: colors[nr].word,
 			img: colors[nr].img,
