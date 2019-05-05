@@ -56,7 +56,7 @@ class Quiz extends React.Component {
 			setTimeout(() => {
 				element.classList.toggle("correct-answer");
 				this.nextQuestion();
-			}, 750);
+			}, 1000);
 			element.classList.toggle("correct-answer");
 		} else {
 			this.setState({ wrongAnswer: true, disableButton: true });
@@ -64,7 +64,7 @@ class Quiz extends React.Component {
 				element.classList.toggle("wrong-answer");
 				this.setState({ wrongAnswer: false });
 				this.nextQuestion();
-			}, 750);
+			}, 1000);
 			element.classList.toggle("wrong-answer");
 		}
 	}
