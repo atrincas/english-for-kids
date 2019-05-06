@@ -58,5 +58,5 @@ We try to break down the tasks for the project and also we try to build app in a
 
 In order to accomplish our tasks in a proper way we have created a trello board. Also another reason why we created the trello board is to clarify the collaboration process.
 
-**[Check out my trelloboard here](https://trello.com/b/bqk8Skpf/learnenglishapp)**
+**[Check out our trelloboard here](https://trello.com/b/bqk8Skpf/learnenglishapp)**
 
