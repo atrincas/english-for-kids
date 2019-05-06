@@ -7,7 +7,8 @@ class Question extends React.PureComponent {
 			options,
 			checkAnswer,
 			correctAnswer,
-			wrongAnswer
+			wrongAnswer,
+			disableButton
 		} = this.props;
 
 		return (
@@ -33,6 +34,7 @@ class Question extends React.PureComponent {
 									className="options-li"
 									id={option}
 									key={i}
+									style={{ pointerEvents: disableButton ? 'none' : 'auto' }}
 									onClick={checkAnswer}
 								>
 									{option}

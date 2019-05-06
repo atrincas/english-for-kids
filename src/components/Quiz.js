@@ -22,12 +22,12 @@ class Quiz extends React.Component {
 	}
 
 	createNewQuestion(nr) {
-		console.log("newquestion");
 		this.setState({
 			currentWord: colors[nr].word,
 			img: colors[nr].img,
 			correctAnswer: false,
 			wrongAnswer: false,
+			disableButton: false,
 			options: this.shuffle(colors[nr].options),
 			nr: this.state.nr + 1
 		});
@@ -51,19 +51,19 @@ class Quiz extends React.Component {
 			{ currentWord } = this.state;
 
 		if (answer === currentWord) {
-			this.setState({ score: this.state.score + 1, correctAnswer: true });
+			this.setState({ score: this.state.score + 1, correctAnswer: true, disableButton: true });
 			setTimeout(() => {
 				element.classList.toggle("correct-answer");
 				this.nextQuestion();
-			}, 750);
+			}, 1000);
 			element.classList.toggle("correct-answer");
 		} else {
-			this.setState({ wrongAnswer: true });
+			this.setState({ wrongAnswer: true, disableButton: true });
 			setTimeout(() => {
 				element.classList.toggle("wrong-answer");
 				this.setState({ wrongAnswer: false });
 				this.nextQuestion();
-			}, 750);
+			}, 1000);
 			element.classList.toggle("wrong-answer");
 		}
 	}
@@ -91,7 +91,8 @@ class Quiz extends React.Component {
 			completed,
 			options,
 			score,
-			total
+			total,
+			disableButton
 		} = this.state;
 
 		if (completed)
@@ -112,6 +113,7 @@ class Quiz extends React.Component {
 				options={options}
 				correctAnswer={correctAnswer}
 				wrongAnswer={wrongAnswer}
+				disableButton={disableButton}
 				checkAnswer={this.checkAnswer}
 			/>
 		);
