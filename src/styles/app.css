@@ -15,11 +15,42 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;	
-	
+	height: 100%;		
 }
 
+.LPImage {
+	background-image: url("kids.jpg");
+  min-height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
+.LPcontainer {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
+
+.LPtopnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.LPtopnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.LPtopnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
 h1 {
 	margin-top: 0px;
@@ -27,7 +58,7 @@ h1 {
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-img {
+#img {
 	width: 100%;
 	height: 300px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -35,6 +66,8 @@ img {
   	border-radius: 25px;
   	padding: 5px;
 }
+
+
 
 .options {
 	display: flex;

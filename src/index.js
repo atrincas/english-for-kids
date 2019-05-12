@@ -10,18 +10,14 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const routing = (
     <Router>
+        <div className="LPtopnav">
+            <a href="/">Home</a>
+            <a href="/app">App</a>
+            <a href="/quiz">Quiz</a>
+            <a href="#about">About</a>
+        </div>
       <div>      
-        <ul>
-            <li>
-            <Link to="/">Home</Link>
-            </li>
-            <li>
-            <Link to="/app">App</Link>
-            </li>
-            <li>
-            <Link to="/quiz">Quiz</Link>
-            </li>
-        </ul>
+        
         <Route exact path="/app" component={App} />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/quiz" component={Quiz} />

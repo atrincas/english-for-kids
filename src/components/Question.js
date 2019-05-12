@@ -16,7 +16,7 @@ class Question extends React.PureComponent {
 				<br style={{ marginBottom: "8em" }} />
 				<div className="container">
 					<h1>Choose the right color</h1>
-					<img
+					<img id="img"
 						src={imgUrl}
 						className={
 							correctAnswer
