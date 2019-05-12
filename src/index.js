@@ -14,7 +14,7 @@ const routing = (
             <a href="/">Home</a>
             <a href="/app">App</a>
             <a href="/quiz">Quiz</a>
-            <a href="#about">About</a>
+            <a href="https://github.com/atrincas/english-for-kids/blob/master/README.md" target="_blank">About</a>
         </div>
       <div>      
         
