@@ -12,10 +12,19 @@ class Question extends React.PureComponent {
 		} = this.props;
 
 		return (
+			
 			<div className="bgImage">
-				<br style={{ marginBottom: "8em" }} />
+				<div className="nav">
+						<a href="/">Home</a>
+						<a href="/app">App</a>
+						<a href="/quiz">Quiz</a>
+						<a href="https://github.com/atrincas/english-for-kids/blob/master/README.md" target="_blank" rel="noopener noreferrer">About</a>
+					</div>
+				<br style={{ marginBottom: "2em" }} />
 				<div className="container">
-					<h1>Choose the right color</h1>
+					
+					<h1 style={{fontFamily: 'Chewy' }}>Choose the right color</h1>
+					<br></br>
 					<img id="img"
 						src={imgUrl}
 						className={
@@ -44,6 +53,7 @@ class Question extends React.PureComponent {
 					</ul>
 				</div>
 			</div>
+			
 		);
 	}
 }
