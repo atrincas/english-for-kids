@@ -35,6 +35,8 @@ Check out: **[requirements.md](./requirements.md)**
 
 - **[Feature/display quiz questions](https://github.com/atrincas/english-for-kids/pull/2)**
 - **[Feature/styles added to app](https://github.com/atrincas/english-for-kids/pull/3)**
+- **[Feature/data added to app](https://github.com/atrincas/english-for-kids/tree/feature/data)**
+- **[Feature/feedback for the quiz questions added](https://github.com/atrincas/english-for-kids/tree/feature/feedback-quiz)**
 
 ## Our git workflow
 
