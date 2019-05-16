@@ -1,34 +1,55 @@
 import React from "react";
 
-import { colors } from "../data/data";
+import { colors, fruits, clothes, drinks, animals, partsOfBody  } from "../data/data";
 import Question from "./Question";
+import Navbar from "./Navbar";
+
+
 
 class Quiz extends React.Component {
 	constructor(props) {
 		super(props);
+
+		const newQuiz = this.props.newState		
+		const section = (newQuiz) => {
+			if (newQuiz === "colors") {return colors}
+			else if (newQuiz === "fruits") {return fruits}
+			else if (newQuiz === "clothes") {return clothes}
+			else if (newQuiz === "drinks") {return drinks}
+			else if (newQuiz === "animals") {return animals}
+			else if (newQuiz === "partsOfBody") {return partsOfBody}
+		}
+		
 		this.state = {
+			quiz: section(newQuiz),
 			nr: 0,
-			total: colors.length,
+			total: section(newQuiz).length,
 			score: 0,
 			completed: false
 		};
 		this.checkAnswer = this.checkAnswer.bind(this);
-		this.nextQuestion = this.nextQuestion.bind(this);
+		this.nextQuestion = this.nextQuestion.bind(this);	
+			
 	}
+	
 
 	componentWillMount() {
+		
 		let { nr } = this.state;
 		this.createNewQuestion(nr);
+		
 	}
 
 	createNewQuestion(nr) {
+		let { quiz } = this.state;
+			
 		this.setState({
-			currentWord: colors[nr].word,
-			img: colors[nr].img,
+			currentWord: quiz[nr].word,
+			img: quiz[nr].img,
 			correctAnswer: false,
 			wrongAnswer: false,
 			disableButton: false,
-			options: this.shuffle(colors[nr].options),
+			options: this.shuffle(quiz[nr].options),
 			nr: this.state.nr + 1
 		});
 	}
@@ -44,6 +65,8 @@ class Quiz extends React.Component {
 		}
 		return arr;
 	}
+
+	
 
 	checkAnswer(e) {
 		let answer = e.currentTarget.innerText,
@@ -92,18 +115,27 @@ class Quiz extends React.Component {
 			options,
 			score,
 			total,
-			disableButton
+			disableButton,
+			
 		} = this.state;
+
+		
 
 		if (completed)
 			return (
+				<div>
+				
+					<Navbar />
+								
 				<div className="resultImage">
-					<br style={{ marginBottom: "10em" }} />
+					
+					<br style={{ marginBottom: "5em" }} />
 					<div>
 						<br />
 						Quiz completed! You got {score} out of {total} right!
 					</div>
-				</div>
+				</div>	
+				</div>			
 			);
 
 		return (
@@ -115,6 +147,7 @@ class Quiz extends React.Component {
 				wrongAnswer={wrongAnswer}
 				disableButton={disableButton}
 				checkAnswer={this.checkAnswer}
+				
 			/>
 		);
 	}

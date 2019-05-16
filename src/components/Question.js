@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./Navbar"
 
 class Question extends React.PureComponent {
 	render() {
@@ -14,17 +15,12 @@ class Question extends React.PureComponent {
 		return (
 			
 			<div className="bgImage">
-				<div className="nav">
-						<a href="/">Home</a>
-						<a href="/app">App</a>
-						<a href="/quiz">Quiz</a>
-						<a href="https://github.com/atrincas/english-for-kids/blob/master/README.md" target="_blank" rel="noopener noreferrer">About</a>
-					</div>
-				<br style={{ marginBottom: "2em" }} />
+				<Navbar />
+				
 				<div className="container">
 					
-					<h1 style={{fontFamily: 'Chewy' }}>Choose the right color</h1>
-					<br></br>
+					<h1 style={{fontFamily: 'Chewy' }}>Find the right choice</h1>
+					
 					<img id="img"
 						src={imgUrl}
 						className={
