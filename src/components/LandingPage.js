@@ -1,6 +1,7 @@
 import React from "react";
 import Quiz from "./Quiz";
 import Section from "./Sections";
+import { Route } from 'react-router-dom'
 import colors from "../styles/images/colors.jpg";
 import fruits from "../styles/images/fruits.jpg";
 import clothes from "../styles/images/clothes.jpg";
