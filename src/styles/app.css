@@ -73,19 +73,28 @@ html, body {
 }
 
 .dropbtn {
-  background-color: red;
-  color: white;  
+	background-color: transparent;
+	cursor: pointer;	
+  color: red;  
   font-size: 30px;
 	border: none;
 	padding: 14px 16px;
+	display: inline
 	
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+text-decoration: none;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: inline;
 }
+
+
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -93,24 +102,28 @@ html, body {
   position: absolute;
   background-color: none; 
 	z-index: 1;
-	width:33%
+	width:33%;
+	
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdown-content button {
   color: black;  
   text-decoration: none;
-  display: block;
+	display: inline;
+	background-color: rgba(255,255,255,0.8);
+	cursor: pointer;
+	border: none;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: none;}
+.dropdown-content button:hover {background-color: transparent; text-decoration: none}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: inline-block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: none;}
+.dropdown:hover .dropbtn {background-color: transparent;}
 
 
 
@@ -171,6 +184,10 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
 	position: relative;
+	background-color: transparent;
+  border: none;
+	cursor: pointer;
+	display: inline
 
 	}
  .rc img{
@@ -195,9 +212,6 @@ h1 {
   	border-radius: 25px;
   	padding: 5px;
 }
-
-
-
 
 .options {
 	display: flex;
