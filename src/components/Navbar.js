@@ -1,27 +1,19 @@
 import React from "react";
-import Quiz from "./Quiz";
+import { connect } from "react-redux";
+import {Link} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.css";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import * as setLandingPageAction from "../state/actions/setLandingPage";
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      section: ""
-    };
+    
+    };  
+  
 
-    this.sectionSelection = this.sectionSelection.bind(this);
-  }
-
-  sectionSelection = e => {
-    this.setState({ section: e.currentTarget.id });
-    setTimeout(() => {
-      console.log(this.state);
-    }, 1000);
-  };
-
+  
   render() {
-    if (this.state.section === "") {
       return (
         <div className="nav">
           <a href="/">Home</a>
@@ -35,8 +27,10 @@ class Navbar extends React.Component {
           <div className="dropdown">
             <button className="dropbtn">Sections</button>
             <div className="dropdown-content">
-              <button
-                onClick={this.sectionSelection}
+              <Link
+                className="dropdown-content-link"
+                to="/quiz"                
+                onClick={e => {setLandingPageAction.setSectionName(e.currentTarget.id)}}
                 id="colors"
                 style={{
                   fontSize: "30px",
@@ -45,9 +39,12 @@ class Navbar extends React.Component {
                 }}
               >
                 Colors
-              </button>
-              <button
-                onClick={this.sectionSelection}
+              </Link>
+              <br></br>
+              <Link
+                className="dropdown-content-link"
+                to="/quiz"
+                onClick={e => {setLandingPageAction.setSectionName(e.currentTarget.id)}}
                 id="fruits"
                 style={{
                   fontSize: "30px",
@@ -56,9 +53,12 @@ class Navbar extends React.Component {
                 }}
               >
                 Fruits
-              </button>
-              <button
-                onClick={this.sectionSelection}
+              </Link>
+              <br></br>
+              <Link
+                className="dropdown-content-link"
+                to="/quiz"
+                onClick={e => {setLandingPageAction.setSectionName(e.currentTarget.id)}}
                 id="clothes"
                 style={{
                   fontSize: "30px",
@@ -67,9 +67,12 @@ class Navbar extends React.Component {
                 }}
               >
                 Clothes
-              </button>
-              <button
-                onClick={this.sectionSelection}
+              </Link>
+              <br></br>
+              <Link
+                className="dropdown-content-link"
+                to="/quiz"
+                onClick={e => {setLandingPageAction.setSectionName(e.currentTarget.id)}}
                 id="drinks"
                 style={{
                   fontSize: "30px",
@@ -78,9 +81,12 @@ class Navbar extends React.Component {
                 }}
               >
                 Drinks
-              </button>
-              <button
-                onClick={this.sectionSelection}
+              </Link>
+              <br></br>
+              <Link
+                className="dropdown-content-link"
+                to="/quiz"
+                onClick={e => {setLandingPageAction.setSectionName(e.currentTarget.id)}}
                 id="animals"
                 style={{
                   fontSize: "30px",
@@ -89,9 +95,12 @@ class Navbar extends React.Component {
                 }}
               >
                 Animals
-              </button>
-              <button
-                onClick={this.sectionSelection}
+              </Link>
+              <br></br>
+              <Link
+                className="dropdown-content-link"
+                to="/quiz"
+                onClick={e => {setLandingPageAction.setSectionName(e.currentTarget.id)}}
                 id="partsOfBody"
                 style={{
                   fontSize: "30px",
@@ -100,23 +109,19 @@ class Navbar extends React.Component {
                 }}
               >
                 PartsofBody
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       );
-    } else if (
-      this.state.section === "colors" ||
-      "fruits" ||
-      "clothes" ||
-      "drinks" ||
-      "animals" ||
-      "partsOfBody"
-    ) {
-      const newState = this.state.section;
-      return <Quiz newState={newState} />;
-    }
-  }
+    } 
 }
 
-export default Navbar;
+const mapStateToProps = state => {
+  const { landingPage } = state;
+  return {
+    section: landingPage.section
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);

@@ -1,108 +1,102 @@
 import React from "react";
-import Quiz from "./Quiz";
+import { connect } from "react-redux";
 import Section from "./Sections";
-import { Route } from 'react-router-dom'
 import colors from "../styles/images/colors.jpg";
 import fruits from "../styles/images/fruits.jpg";
 import clothes from "../styles/images/clothes.jpg";
 import drinks from "../styles/images/drinks.jpg";
 import animals from "../styles/images/animals.jpg";
 import partsOfBody from "../styles/images/partsOfBody.jpg";
+import * as setLandingPageAction from "../state/actions/setLandingPage";
+import store from "../state/store";
 
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      section: ""
-    };
-
-    this.sectionSelection = this.sectionSelection.bind(this);
   }
 
-  sectionSelection = e => {
-    this.setState({ section: e.currentTarget.id });
-    setTimeout(() => {
-      console.log(this.state);
-    }, 1000);
+  setSection = e => {
+    setLandingPageAction.setSectionName(e.currentTarget.id);
+    
   };
 
   render() {
-    if (this.state.section === "") {
-      return (
-        <div>
-          <div className="LPImage">
-            <div className="LPcontainer" />
-          </div>
-          <p className="welcome">Welcome to English For Kids</p>
-          <div className="row">
-            <Section
-              onClick={this.sectionSelection}
-              id={"colors"}
-              alt={"colors"}
-              src={colors}
-            >
-              Colors
-            </Section>
-            <Section
-              onClick={this.sectionSelection}
-              id={"fruits"}
-              alt={"fruits"}
-              src={fruits}
-            >
-              Fruits
-            </Section>
-          </div>
-          <div className="row">
-            <Section
-              onClick={this.sectionSelection}
-              id={"clothes"}
-              alt={"clothes"}
-              src={clothes}
-            >
-              Clothes
-            </Section>
-            <Section
-              onClick={this.sectionSelection}
-              id={"drinks"}
-              alt={"drinks"}
-              src={drinks}
-            >
-              Drinks
-            </Section>
-          </div>
-          <div className="row">
-            <Section
-              onClick={this.sectionSelection}
-              id={"animals"}
-              alt={"animals"}
-              src={animals}
-            >
-              Animals
-            </Section>
-            <Section
-              onClick={this.sectionSelection}
-              id={"partsOfBody"}
-              alt={"partsOfBody"}
-              src={partsOfBody}
-            >
-              Parts of Body
-            </Section>
-          </div>
+    return (
+      <div>
+        <div className="LPImage">
+          <div className="LPcontainer" />
         </div>
-      );
-    } else if (
-      this.state.section === "colors" ||
-      "fruits" ||
-      "clothes" ||
-      "drinks" ||
-      "animals" ||
-      "partsOfBody"
-    ) {
-      const prop = this.state.section;
-
-      return <Quiz newState={prop} />;
-    }
+        <p className="welcome">Welcome to English For Kids</p>
+        <div className="row">
+          <Section
+            value={this.props.section}
+            onMouseMove={this.setSection}
+            id={"colors"}
+            alt={"colors"}
+            src={colors}
+          >
+            Colors
+          </Section>
+          <Section
+            value={this.props.section}
+            onMouseMove={this.setSection}
+            id={"fruits"}
+            alt={"fruits"}
+            src={fruits}
+          >
+            Fruits
+          </Section>
+        </div>
+        <div className="row">
+          <Section
+            value={this.props.section}
+            onMouseMove={this.setSection}
+            id={"clothes"}
+            alt={"clothes"}
+            src={clothes}
+          >
+            Clothes
+          </Section>
+          <Section
+            value={this.props.section}
+            onMouseMove={this.setSection}
+            id={"drinks"}
+            alt={"drinks"}
+            src={drinks}
+          >
+            Drinks
+          </Section>
+        </div>
+        <div className="row">
+          <Section
+            value={this.props.section}
+            onMouseMove={this.setSection}
+            id={"animals"}
+            alt={"animals"}
+            src={animals}
+          >
+            Animals
+          </Section>
+          <Section
+            value={this.props.section}
+            onMouseMove={this.setSection}
+            id={"partsOfBody"}
+            alt={"partsOfBody"}
+            src={partsOfBody}
+          >
+            Parts of Body
+          </Section>
+        </div>
+      </div>
+    );
   }
 }
 
-export default LandingPage;
+const mapStateToProps = state => {
+  const { landingPage } = state;
+  return {
+    section: landingPage.section
+  };
+};
+
+export default connect(mapStateToProps)(LandingPage);
