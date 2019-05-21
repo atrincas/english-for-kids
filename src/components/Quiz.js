@@ -136,6 +136,7 @@ export class Quiz extends React.Component {
     if (completed === true)
       return (
         <div className="resultImage">
+          <a href="/" style={{fontFamily:"Chewy", fontSize:"30px", color:"red", margin:"20px 0px 0px 50px"}}>Home</a>
           <br style={{ marginBottom: "5em" }} />
           <div style={{ fontFamily: "Chewy", color: "red" }}>
             <br />
