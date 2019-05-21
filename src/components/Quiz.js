@@ -17,10 +17,17 @@ export class Quiz extends React.Component {
   constructor(props) {
     super(props);
 
+    console.log(this.props.newQuiz);
     this.checkAnswer = this.checkAnswer.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
 
-    // console.log(store.getState().landingPage.section);
+    console.log(store.getState().landingPage.section);
+  }
+
+  componentWillReceiveProps() {
+    if (this.props.newQuiz !== store.getState().landingPage.section) {
+      this.componentWillMount();
+    }
   }
 
   componentWillMount() {
@@ -74,7 +81,7 @@ export class Quiz extends React.Component {
   checkAnswer(e) {
     let currentWord = store.getState().quizPage.currentWord;
     let score = store.getState().quizPage.score;
-    console.log(score)
+    console.log(score);
 
     let answer = e.currentTarget.innerText;
     let element = document.getElementById(answer);
@@ -105,7 +112,6 @@ export class Quiz extends React.Component {
   nextQuestion() {
     let nr = store.getState().quizPage.nr;
     let total = store.getState().quizPage.total;
-    
 
     // Check if quiz is completed:
     if (nr === total) {
@@ -126,13 +132,12 @@ export class Quiz extends React.Component {
     let score = store.getState().quizPage.score;
     let total = store.getState().quizPage.total;
     let img = store.getState().quizPage.img;
-    
 
     if (completed === true)
       return (
         <div className="resultImage">
           <br style={{ marginBottom: "5em" }} />
-          <div style={{fontFamily:"Chewy", color:"red"}}>
+          <div style={{ fontFamily: "Chewy", color: "red" }}>
             <br />
             Quiz completed! You got {score} out of {total} right!
           </div>

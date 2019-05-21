@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -85,12 +84,4 @@ class Navbar extends React.Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  const { landingPage } = state;
-  return {
-    section: landingPage.section
-  };
-};
-
-export default connect(mapStateToProps)(Navbar);
+export default Navbar

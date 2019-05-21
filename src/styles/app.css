@@ -42,6 +42,7 @@ body {
 .nav {
   background-color: none;
   font-family: "Chewy";
+  z-index: 1;
 }
 
 .nav a {
@@ -259,7 +260,7 @@ h1 {
 
 .resultImage {
   background: url("./images/hobqjg.jpg");
-  position: fixed;
+  position: absolute;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
