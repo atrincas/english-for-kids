@@ -25,8 +25,6 @@ export class Quiz extends React.Component {
 
   componentWillMount() {
     let nr = store.getState().quizPage.nr;
-    let newQuiz = store.getState().landingPage.section;
-    // console.log(newQuiz);
     this.createNewQuestion(nr);
   }
 
@@ -134,7 +132,7 @@ export class Quiz extends React.Component {
       return (
         <div className="resultImage">
           <br style={{ marginBottom: "5em" }} />
-          <div>
+          <div style={{fontFamily:"Chewy", color:"red"}}>
             <br />
             Quiz completed! You got {score} out of {total} right!
           </div>

@@ -3,7 +3,7 @@ const INITIAL_STATE = {
 };
 
 const landingPage = (state = INITIAL_STATE, action) => {
-  // console.log(state, action)
+  console.log(state, action)
   switch (action.type) {
     case "UPDATE_SECTION":
       return Object.assign({}, state, { section: action.payload.section });

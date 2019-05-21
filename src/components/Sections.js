@@ -3,14 +3,12 @@ import {Link} from "react-router-dom"
 
 class Section extends React.Component {
   render() {
-    const { value, onMouseMove, id, src, alt  } = this.props;
+    const { onClick, id, src, alt  } = this.props;
     return (
       <div className="column">
         <Link
-          to="/quiz"
-          value={value}
-          onMouseMove={onMouseMove}
-          
+          to="/quiz"          
+          onClick={onClick}          
           id={id}
           className="rc"
         >
