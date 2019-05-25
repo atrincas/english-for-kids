@@ -1,44 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
 }
-.container {
-  width: 70%;
-  margin: auto;
-}
 
-.bgImage {
-  background: url("./images/frame.jpg") no-repeat center center fixed;
-  position: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding: 0;
-  margin: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.LPImage {
-  background-image: url("./images/kids.jpg");
-  min-height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  width: 100%;
-}
-
-.LPcontainer {
-  position: absolute;
-  margin: 20px;
-  width: auto;
-}
-
+/* NAVBAR */
 .nav {
   background-color: none;
   font-family: "Chewy";
@@ -61,55 +32,69 @@ body {
   transform: scale(1.2); 
 }
 
-.dropbtn {
-  background-color: transparent;
-  cursor: pointer;
-  color: red;
-  font-size: 30px;
-  border: none;
-  padding: 14px 16px;
-  
+/************************/
+/*                      */
+/*     LANDING PAGE     */
+/*                      */
+/************************/
+
+/* MEDIA QUERIES  */
+@media only screen and (max-width: 950px) {
+  #root .LPImage {
+    height: 300px;
+  }
+  #root .welcome {
+    font-size: 2.5em;
+  }
+  #root .rc img {
+    height: 350px;
+  }
 }
 
-.dropdown {
+@media only screen and (max-width: 720px) {
+  #root .LPImage {
+    height: 200px;
+  }
+  #root .welcome {
+    font-size: 2em;
+  }
+  #root .column {
+    flex: 100%;
+  }
+  #root .rc img {
+    height: 300px;
+  }
+  #root .text {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #root .LPImage {
+    height: 150px;
+  }
+  #root .welcome {
+    font-size: 1.5em;
+  }
+  #root .rc img {
+    height: 200px;
+  }
+}
+
+.LPImage {
+  background-image: url("./images/header-background.jpg");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   position: relative;
-  display: inline-block;
-  width:33%;
-  text-align: center;
-  
+  width: 100%;
 }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: rgba(237, 241, 238, 0.8);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;  
-  right: 0;
-  text-align: left; 
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: transparent; 
-}
-
-.dropbtn:hover {
-color: rgb(127, 245, 127);
-transition: transform .2s;
-  transform: scale(1.2); 
-
-}
-
 
 .welcome {
-  font-family: "mistervampireregular";
+  font-family: "Bungee Shade", cursive;
   width: 100%;
-  font-size: 5em;
+  font-size: 4em;
   text-align: center;
   margin-top: 30px;
   margin-bottom: 50px;
@@ -128,7 +113,6 @@ transition: transform .2s;
 
 .column {
   flex: 50%;
-  height: relative;
 }
 
 .middle {
@@ -258,6 +242,62 @@ h1 {
   color: white;
 }
 
+@keyframes createBox {
+  from {
+    transform: scale(0, 5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/************************/
+/*                      */
+/*      QUIZ Page       */
+/*                      */
+/************************/
+.container {
+  width: 70%;
+  margin: auto;
+}
+
+.bgImage {
+  background: url("./images/frame.jpg") no-repeat center center fixed;
+  position: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* CORRECT ANSWER */
+.correct-answer {
+  background: green;
+  border-color: green;
+}
+
+.correct-answer:hover {
+  background: green;
+  border-color: green;
+}
+
+/* WRONG ANSWER */
+.wrong-answer {
+  background: red;
+  border-color: red;
+}
+
+.wrong-answer:hover {
+  background: red;
+  border-color: red;
+}
+
 .resultImage {
   background: url("./images/hobqjg.jpg");
   position: absolute;
@@ -285,44 +325,4 @@ h1 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 3rem;
   text-align: center;
-}
-
-
-@keyframes createBox {
-  from {
-    transform: scale(0, 5);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-/* CORRECT ANSWER */
-.correct-answer {
-  background: green;
-  border-color: green;
-}
-
-.correct-answer:hover {
-  background: green;
-  border-color: green;
-}
-
-/* WRONG ANSWER */
-.wrong-answer {
-  background: red;
-  border-color: red;
-}
-
-.wrong-answer:hover {
-  background: red;
-  border-color: red;
-}
-
-@font-face {
-  font-family: "mistervampireregular";
-  src: url("./fonts/mistv___-webfont.woff2") format("woff2"),
-    url("./fonts/mistv___-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
 }
