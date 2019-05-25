@@ -13,10 +13,8 @@ function App() {
     <Provider store={store}>
       <Router>
           <Navbar />
-        <div>
           <Route exact path="/" component={LandingPage} />  
           <Route exact path="/quiz" component={Quiz} />          
-        </div>
       </Router>
     </Provider>
   );
