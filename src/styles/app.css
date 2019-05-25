@@ -38,9 +38,52 @@ body {
 /*                      */
 /************************/
 
+/* MEDIA QUERIES  */
+@media only screen and (max-width: 950px) {
+  #root .LPImage {
+    height: 300px;
+  }
+  #root .welcome {
+    font-size: 2.5em;
+  }
+  #root .rc img {
+    height: 350px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  #root .LPImage {
+    height: 200px;
+  }
+  #root .welcome {
+    font-size: 2em;
+  }
+  #root .column {
+    flex: 100%;
+  }
+  #root .rc img {
+    height: 300px;
+  }
+  #root .text {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #root .LPImage {
+    height: 150px;
+  }
+  #root .welcome {
+    font-size: 1.5em;
+  }
+  #root .rc img {
+    height: 200px;
+  }
+}
+
 .LPImage {
   background-image: url("./images/header-background.jpg");
-  min-height: 500px;
+  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -70,7 +113,6 @@ body {
 
 .column {
   flex: 50%;
-  height: relative;
 }
 
 .middle {
