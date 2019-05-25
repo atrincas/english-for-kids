@@ -12,9 +12,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div>
           <Navbar />
-        </div>
         <div>
           <Route exact path="/" component={LandingPage} />  
           <Route exact path="/quiz" component={Quiz} />          
