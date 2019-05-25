@@ -10,19 +10,25 @@ class Navbar extends React.Component {
   };
 
   render() {
+    const { homePage } = this.props;
+
     return (
       <div className="nav">
         <a href="/">Home</a>
-        <a href="#sections">Sections</a>
-        <a
-          href="https://github.com/atrincas/english-for-kids/blob/master/README.md"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          About
-        </a>
+        {homePage ? (
+          <>
+            <a href="#sections">Sections</a>
+            <a
+              href="https://github.com/atrincas/english-for-kids/blob/master/README.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              About
+            </a>
+          </>
+        ) : null}
       </div>
     );
   }
 }
-export default Navbar
+export default Navbar;

@@ -14,7 +14,7 @@ class Question extends React.PureComponent {
 
     return (
       <div className="bgImage">
-        <Navbar />
+        <Navbar homePage={false} />
 
         <div className="container">
           <h1 style={{ fontFamily: "Chewy" }}>Find the right choice</h1>
