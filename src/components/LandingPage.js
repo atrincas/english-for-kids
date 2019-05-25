@@ -17,7 +17,7 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Navbar homePage={true} />
         <div className="LPImage" />
         <p className="welcome">Welcome to English For Kids</p>
@@ -77,7 +77,7 @@ class LandingPage extends React.Component {
             </Section>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
