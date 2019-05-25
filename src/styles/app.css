@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
@@ -104,9 +106,9 @@ transition: transform .2s;
 
 
 .welcome {
-  font-family: "mistervampireregular";
+  font-family: "Bungee Shade", cursive;
   width: 100%;
-  font-size: 5em;
+  font-size: 4em;
   text-align: center;
   margin-top: 30px;
   margin-bottom: 50px;
@@ -314,12 +316,4 @@ h1 {
 .wrong-answer:hover {
   background: red;
   border-color: red;
-}
-
-@font-face {
-  font-family: "mistervampireregular";
-  src: url("./fonts/mistv___-webfont.woff2") format("woff2"),
-    url("./fonts/mistv___-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
 }
