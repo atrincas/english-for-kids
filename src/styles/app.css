@@ -36,12 +36,6 @@ body {
   width: 100%;
 }
 
-.LPcontainer {
-  position: absolute;
-  margin: 20px;
-  width: auto;
-}
-
 .nav {
   background-color: none;
   font-family: "Chewy";

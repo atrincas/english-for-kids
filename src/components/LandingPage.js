@@ -19,9 +19,7 @@ class LandingPage extends React.Component {
     return (
       <div>
         <Navbar />
-        <div className="LPImage">
-          <div className="LPcontainer" />
-        </div>
+        <div className="LPImage" />
         <p className="welcome">Welcome to English For Kids</p>
         <div id="sections">
           <div className="row">
