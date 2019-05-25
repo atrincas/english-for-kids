@@ -12,9 +12,8 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-          <Navbar />
-          <Route exact path="/" component={LandingPage} />  
-          <Route exact path="/quiz" component={Quiz} />          
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/quiz" component={Quiz} />
       </Router>
     </Provider>
   );

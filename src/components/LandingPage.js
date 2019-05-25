@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Navbar from "./Navbar";
 import Section from "./Sections";
 import colors from "../styles/images/colors.jpg";
 import fruits from "../styles/images/fruits.jpg";
@@ -9,23 +10,22 @@ import animals from "../styles/images/animals.jpg";
 import partsOfBody from "../styles/images/partsOfBody.jpg";
 import * as setLandingPageAction from "../state/actions/setLandingPage";
 
-
 class LandingPage extends React.Component {
-
   setSection = e => {
-    setLandingPageAction.setSectionName(e.currentTarget.id);    
+    setLandingPageAction.setSectionName(e.currentTarget.id);
   };
 
   render() {
     return (
       <div>
+        <Navbar />
         <div className="LPImage">
           <div className="LPcontainer" />
         </div>
         <p className="welcome">Welcome to English For Kids</p>
         <div id="sections">
           <div className="row">
-            <Section            
+            <Section
               onClick={this.setSection}
               id={"colors"}
               alt={"colors"}
@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
             >
               Colors
             </Section>
-            <Section            
+            <Section
               onClick={this.setSection}
               id={"fruits"}
               alt={"fruits"}
@@ -43,7 +43,7 @@ class LandingPage extends React.Component {
             </Section>
           </div>
           <div className="row">
-            <Section            
+            <Section
               onClick={this.setSection}
               id={"clothes"}
               alt={"clothes"}
@@ -51,7 +51,7 @@ class LandingPage extends React.Component {
             >
               Clothes
             </Section>
-            <Section            
+            <Section
               onClick={this.setSection}
               id={"drinks"}
               alt={"drinks"}
@@ -61,7 +61,7 @@ class LandingPage extends React.Component {
             </Section>
           </div>
           <div className="row">
-            <Section            
+            <Section
               onClick={this.setSection}
               id={"animals"}
               alt={"animals"}
@@ -69,7 +69,7 @@ class LandingPage extends React.Component {
             >
               Animals
             </Section>
-            <Section            
+            <Section
               onClick={this.setSection}
               id={"partsOfBody"}
               alt={"partsOfBody"}
