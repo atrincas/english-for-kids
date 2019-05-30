@@ -1,13 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Navbar from "./Navbar";
-import Section from "./Sections";
-import colors from "../styles/images/colors.jpg";
-import fruits from "../styles/images/fruits.jpg";
-import clothes from "../styles/images/clothes.jpg";
-import drinks from "../styles/images/drinks.jpg";
-import animals from "../styles/images/animals.jpg";
-import partsOfBody from "../styles/images/partsOfBody.jpg";
+import Section from "./Section";
+import { sections } from "../data/data";
 import * as setLandingPageAction from "../state/actions/setLandingPage";
 
 class LandingPage extends React.Component {
@@ -23,58 +18,15 @@ class LandingPage extends React.Component {
         <p className="welcome">Welcome to English For Kids</p>
         <div id="sections">
           <div className="row">
-            <Section
-              onClick={this.setSection}
-              id={"colors"}
-              alt={"colors"}
-              src={colors}
-            >
-              Colors
-            </Section>
-            <Section
-              onClick={this.setSection}
-              id={"fruits"}
-              alt={"fruits"}
-              src={fruits}
-            >
-              Fruits
-            </Section>
-          </div>
-          <div className="row">
-            <Section
-              onClick={this.setSection}
-              id={"clothes"}
-              alt={"clothes"}
-              src={clothes}
-            >
-              Clothes
-            </Section>
-            <Section
-              onClick={this.setSection}
-              id={"drinks"}
-              alt={"drinks"}
-              src={drinks}
-            >
-              Drinks
-            </Section>
-          </div>
-          <div className="row">
-            <Section
-              onClick={this.setSection}
-              id={"animals"}
-              alt={"animals"}
-              src={animals}
-            >
-              Animals
-            </Section>
-            <Section
-              onClick={this.setSection}
-              id={"partsOfBody"}
-              alt={"partsOfBody"}
-              src={partsOfBody}
-            >
-              Parts of Body
-            </Section>
+            {sections.map(section => (
+              <Section
+                key={section.id}
+                onClick={this.setSection}
+                id={section.id}
+                alt={section.name}
+                src={section.img}
+              />
+            ))}
           </div>
         </div>
       </>
