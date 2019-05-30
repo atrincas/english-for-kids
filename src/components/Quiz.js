@@ -17,11 +17,8 @@ export class Quiz extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props.newQuiz);
     this.checkAnswer = this.checkAnswer.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
-
-    console.log(store.getState().landingPage.section);
   }
 
   componentWillReceiveProps() {
@@ -81,7 +78,6 @@ export class Quiz extends React.Component {
   checkAnswer(e) {
     let currentWord = store.getState().quizPage.currentWord;
     let score = store.getState().quizPage.score;
-    console.log(score);
 
     let answer = e.currentTarget.innerText;
     let element = document.getElementById(answer);
@@ -136,7 +132,17 @@ export class Quiz extends React.Component {
     if (completed === true)
       return (
         <div className="resultImage">
-          <a href="/" style={{fontFamily:"Chewy", fontSize:"30px", color:"red", margin:"20px 0px 0px 50px"}}>Home</a>
+          <a
+            href="/"
+            style={{
+              fontFamily: "Chewy",
+              fontSize: "30px",
+              color: "red",
+              margin: "20px 0px 0px 50px"
+            }}
+          >
+            Home
+          </a>
           <br style={{ marginBottom: "5em" }} />
           <div style={{ fontFamily: "Chewy", color: "red" }}>
             <br />
