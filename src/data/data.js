@@ -1,3 +1,42 @@
+export const sections = [
+	{
+	  name: "colors",
+	  id: "colors",
+	  img:
+		"https://pixabay.com/get/54e4d34b4255a814f1dc8460825668204022dfe05658734b7d2e79d7/abstract-2468874_640.jpg"
+	},
+	{
+	  name: "fruits",
+	  id: "fruits",
+	  img:
+		"https://pixabay.com/get/57e5d1454b50a914f1dc8460825668204022dfe05658734b7d2a7ed4/berries-1546125_640.jpg"
+	},
+	{
+	  name: "clothes",
+	  id: "clothes",
+	  img:
+		"https://images.unsplash.com/photo-1542060748-10c28b62716f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+	},
+	{
+	  name: "drinks",
+	  id: "drinks",
+	  img:
+		"https://pixabay.com/get/57e5d6414952ac14f1dc8460825668204022dfe05658734b7c2f7add/mineral-water-1532300_640.jpg"
+	},
+	{
+	  name: "animals",
+	  id: "animals",
+	  img:
+		"https://pixabay.com/get/57e4d447425aa514f1dc8460825668204022dfe05658734b7c2f73d5/horses-1414889_640.jpg"
+	},
+	{
+	  name: "Body Parts",
+	  id: "bodyParts",
+	  img:
+		"https://image.shutterstock.com/z/stock-vector-boy-body-front-view-and-rear-view-children-with-different-parts-of-the-body-for-teaching-body-1114432193.jpg"
+	}
+   ];
+      
 export const colors = [
 	{
 		word: "yellow",
