@@ -36,18 +36,21 @@ export class Quiz extends React.Component {
     const newQuiz = store.getState().landingPage.section;
 
     const section = newQuiz => {
-      if (newQuiz === "colors") {
-        return colors;
-      } else if (newQuiz === "fruits") {
-        return fruits;
-      } else if (newQuiz === "clothes") {
-        return clothes;
-      } else if (newQuiz === "drinks") {
-        return drinks;
-      } else if (newQuiz === "animals") {
-        return animals;
-      } else if (newQuiz === "partsOfBody") {
-        return partsOfBody;
+      switch (newQuiz) {
+        case "colors":
+          return colors;
+        case "fruits":
+          return fruits;
+        case "clothes":
+          return clothes;
+        case "drinks":
+          return drinks;
+        case "animals":
+          return animals;
+        case "partsOfBody":
+          return partsOfBody;
+        default:
+          break;
       }
     };
 
