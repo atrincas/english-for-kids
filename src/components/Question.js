@@ -5,7 +5,7 @@ class Question extends React.PureComponent {
   render() {
     const {
       word,
-      chosenAnwser,
+      chosenAnswer,
       imgUrl,
       options,
       checkAnswer,
@@ -40,7 +40,7 @@ class Question extends React.PureComponent {
                   className={
                     word === option && correctAnswer
                       ? "options-li correct-answer"
-                      : chosenAnwser === option && wrongAnswer
+                      : wrongAnswer && chosenAnswer === option
                       ? "options-li wrong-answer"
                       : "options-li"
                   }
