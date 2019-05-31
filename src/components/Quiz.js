@@ -96,8 +96,8 @@ export class Quiz extends React.Component {
       }, 1000);
       element.classList.toggle("correct-answer");
     } else {
-      setQuizPageAction.setWrongAnswer(false);
-      setQuizPageAction.setDisableButton(false);
+      setQuizPageAction.setWrongAnswer(true);
+      setQuizPageAction.setDisableButton(true);
 
       setTimeout(() => {
         element.classList.toggle("wrong-answer");
