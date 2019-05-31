@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Question from "./Question";
 import store from "../state/store";
@@ -146,8 +147,8 @@ export class Quiz extends React.Component {
     if (completed === true)
       return (
         <div className="resultImage">
-          <a
-            href="/"
+          <Link
+            to="/"
             style={{
               fontFamily: "Chewy",
               fontSize: "30px",
@@ -156,7 +157,7 @@ export class Quiz extends React.Component {
             }}
           >
             Home
-          </a>
+          </Link>
           <br style={{ marginBottom: "5em" }} />
           <div style={{ fontFamily: "Chewy", color: "red" }}>
             <br />

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -14,17 +15,17 @@ class Navbar extends React.Component {
 
     return (
       <div className="nav">
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
         {homePage ? (
           <>
-            <a href="#sections">Sections</a>
-            <a
-              href="https://github.com/atrincas/english-for-kids/blob/master/README.md"
+            <Link to="#sections">Sections</Link>
+            <Link
+              to="https://github.com/atrincas/english-for-kids/blob/master/README.md"
               target="_blank"
               rel="noopener noreferrer"
             >
               About
-            </a>
+            </Link>
           </>
         ) : null}
       </div>
