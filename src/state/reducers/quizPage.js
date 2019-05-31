@@ -2,13 +2,13 @@ const INITIAL_STATE = {
   currentWord: "quiz[nr].word",
   chosenAnswer: null,
   img: "quiz[nr].img",
-  correctAnswer: "false",
-  wrongAnswer: "false",
-  completed: "false",
+  correctAnswer: false,
+  wrongAnswer: false,
+  completed: false,
   options: "this.shuffle(quiz[nr].options)",
   score: 0,
   total: "quiz.length",
-  disableButton: "false",
+  disableButton: false,
   quiz: "section(newQuiz)",
   nr: 0
 };
