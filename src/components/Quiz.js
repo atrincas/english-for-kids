@@ -152,10 +152,12 @@ export class Quiz extends React.Component {
           >
             Home
           </Link>
-          <br style={{ marginBottom: "5em" }} />
-          <div style={{ fontFamily: "Chewy", color: "red" }}>
-            <br />
-            Quiz completed! You got {score} out of {total} right!
+          <div>
+            <p>
+              Quiz completed!
+              <br />
+              You got {score} out of {total} right!
+            </p>
           </div>
         </div>
       );

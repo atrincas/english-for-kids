@@ -49,6 +49,9 @@ body {
   #root .rc img {
     height: 350px;
   }
+  .resultImage div p {
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (max-width: 720px) {
@@ -67,6 +70,9 @@ body {
   #root .text {
     font-size: 50px;
   }
+  .resultImage div p {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (max-width: 550px) {
@@ -78,6 +84,12 @@ body {
   }
   #root .rc img {
     height: 200px;
+  }
+  #root .resultImage div {
+    height: 100px;
+  }
+  .resultImage div p {
+    font-size: 1rem;
   }
 }
 
@@ -314,6 +326,11 @@ h1 {
 }
 
 .resultImage div {
+  font-family: Chewy;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 150px auto;
   animation: createBox 0.5s;
   width: 60%;
@@ -324,5 +341,6 @@ h1 {
   padding: 5px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 3rem;
+  font-weight: bold;
   text-align: center;
 }
