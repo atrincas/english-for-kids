@@ -35,8 +35,8 @@ export class Quiz extends React.Component {
   }
 
   componentWillMount() {
-    let nr = store.getState().quizPage.nr;
-    this.createNewQuestion(nr);
+    // Make sure quiz always start at the first question:
+    this.createNewQuestion(0);
   }
 
   createNewQuestion = nr => {
