@@ -10,7 +10,7 @@ import {
   clothes,
   drinks,
   animals,
-  partsOfBody
+  bodyParts
 } from "../data/data";
 
 export class Quiz extends React.Component {
@@ -47,8 +47,8 @@ export class Quiz extends React.Component {
           return drinks;
         case "animals":
           return animals;
-        case "partsOfBody":
-          return partsOfBody;
+        case "bodyParts":
+          return bodyParts;
         default:
           break;
       }
