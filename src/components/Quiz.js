@@ -34,12 +34,6 @@ export class Quiz extends React.Component {
     this.nextQuestion = this.nextQuestion.bind(this);
   }
 
-  componentWillReceiveProps() {
-    if (this.props.newQuiz !== store.getState().landingPage.section) {
-      this.componentWillMount();
-    }
-  }
-
   componentWillMount() {
     let nr = store.getState().quizPage.nr;
     this.createNewQuestion(nr);
