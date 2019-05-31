@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
