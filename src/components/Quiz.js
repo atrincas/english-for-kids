@@ -119,15 +119,17 @@ export class Quiz extends React.Component {
   }
 
   render() {
-    let disableButton = store.getState().quizPage.getStatedisableButton;
-    let correctAnswer = store.getState().quizPage.correctAnswer;
-    let wrongAnswer = store.getState().quizPage.wrongAnswer;
-    let currentWord = store.getState().quizPage.currentWord;
-    let completed = store.getState().quizPage.completed;
-    let options = store.getState().quizPage.options;
-    let score = store.getState().quizPage.score;
-    let total = store.getState().quizPage.total;
-    let img = store.getState().quizPage.img;
+    const {
+      disableButton,
+      correctAnswer,
+      wrongAnswer,
+      currentWord,
+      completed,
+      options,
+      score,
+      total,
+      img
+    } = store.getState().quizPage;
 
     if (completed === true)
       return (
