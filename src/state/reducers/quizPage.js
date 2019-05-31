@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   currentWord: "quiz[nr].word",
+  chosenAnswer: null,
   img: "quiz[nr].img",
   correctAnswer: "false",
   wrongAnswer: "false",
@@ -17,6 +18,11 @@ const quizPage = (state = INITIAL_STATE, action) => {
     case "UPDATE_CURRENTWORD":
       return Object.assign({}, state, {
         currentWord: action.payload.currentWord
+      });
+
+    case "UPDATE_CHOSENANSWER":
+      return Object.assign({}, state, {
+        chosenAnswer: action.payload.chosenAnswer
       });
 
     case "UPDATE_IMG":
@@ -39,7 +45,7 @@ const quizPage = (state = INITIAL_STATE, action) => {
       return Object.assign({}, state, { options: action.payload.options });
 
     case "UPDATE_SCORE":
-      return Object.assign({}, state, { score: state.score+1 });
+      return Object.assign({}, state, { score: state.score + 1 });
 
     case "UPDATE_TOTAL":
       return Object.assign({}, state, { total: action.payload.total });

@@ -83,7 +83,8 @@ export class Quiz extends React.Component {
     let score = store.getState().quizPage.score;
 
     let answer = e.currentTarget.innerText;
-    let element = document.getElementById(answer);
+    setQuizPageAction.setChosenAnswer(answer);
+    // let element = document.getElementById(answer);
 
     if (answer === currentWord) {
       setQuizPageAction.setScore(score + 1);
@@ -91,20 +92,15 @@ export class Quiz extends React.Component {
       setQuizPageAction.setDisableButton(true);
 
       setTimeout(() => {
-        element.classList.toggle("correct-answer");
         this.nextQuestion();
       }, 1000);
-      element.classList.toggle("correct-answer");
     } else {
       setQuizPageAction.setWrongAnswer(true);
       setQuizPageAction.setDisableButton(true);
 
       setTimeout(() => {
-        element.classList.toggle("wrong-answer");
-        setQuizPageAction.setWrongAnswer(false);
         this.nextQuestion();
       }, 1000);
-      element.classList.toggle("wrong-answer");
     }
   }
 
@@ -124,6 +120,7 @@ export class Quiz extends React.Component {
   render() {
     const {
       disableButton,
+      chosenAnswer,
       correctAnswer,
       wrongAnswer,
       currentWord,
@@ -159,6 +156,7 @@ export class Quiz extends React.Component {
     return (
       <Question
         word={currentWord}
+        chosenAnswer={chosenAnswer}
         imgUrl={img}
         options={options}
         correctAnswer={correctAnswer}
@@ -174,6 +172,7 @@ const mapStateToProps = state => {
   const { quizPage, landingPage } = state;
   return {
     currentWord: quizPage.currentWord,
+    chosenAnswer: quizPage.chosenAnswer,
     img: quizPage.img,
     correctAnswer: quizPage.correctAnswer,
     wrongAnswer: quizPage.wrongAnswer,

@@ -4,6 +4,8 @@ import Navbar from "./Navbar";
 class Question extends React.PureComponent {
   render() {
     const {
+      word,
+      chosenAnwser,
       imgUrl,
       options,
       checkAnswer,
@@ -29,13 +31,19 @@ class Question extends React.PureComponent {
                 ? "wrong-answer"
                 : null
             }
-            alt="word"
+            alt={word}
           />
           <ul className="options">
             {options.map((option, i) => {
               return (
                 <li
-                  className="options-li"
+                  className={
+                    word === option && correctAnswer
+                      ? "options-li correct-answer"
+                      : chosenAnwser === option && wrongAnswer
+                      ? "options-li wrong-answer"
+                      : "options-li"
+                  }
                   id={option}
                   key={i}
                   style={{ pointerEvents: disableButton ? "none" : "auto" }}

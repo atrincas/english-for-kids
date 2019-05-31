@@ -9,6 +9,15 @@ export function setCurrentWord(currentWord) {
   });
 }
 
+export function setChosenAnswer(chosenAnswer) {
+  return store.dispatch({
+    type: "UPDATE_CHOSENANSWER",
+    payload: {
+      chosenAnswer
+    }
+  });
+}
+
 export function setImg(img) {
   return store.dispatch({
     type: "UPDATE_IMG",
