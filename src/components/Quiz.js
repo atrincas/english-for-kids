@@ -1,8 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Question from "./Question";
 import store from "../state/store";
-import * as setQuizPageAction from "../state/actions/setQuizPage";
+import {
+  setCurrentWord,
+  setChosenAnswer,
+  setImg,
+  setCorrectAnswer,
+  setWrongAnswer,
+  setCompleted,
+  setOptions,
+  setScore,
+  setTotal,
+  setDisableButton,
+  setNr
+} from "../state/actions/setQuizPage";
 
 import {
   colors,
@@ -10,7 +23,7 @@ import {
   clothes,
   drinks,
   animals,
-  partsOfBody
+  bodyParts
 } from "../data/data";
 
 export class Quiz extends React.Component {
@@ -21,46 +34,43 @@ export class Quiz extends React.Component {
     this.nextQuestion = this.nextQuestion.bind(this);
   }
 
-  componentWillReceiveProps() {
-    if (this.props.newQuiz !== store.getState().landingPage.section) {
-      this.componentWillMount();
-    }
-  }
-
   componentWillMount() {
-    let nr = store.getState().quizPage.nr;
-    this.createNewQuestion(nr);
+    // Make sure quiz always start at the first question:
+    this.createNewQuestion(0);
   }
 
   createNewQuestion = nr => {
     const newQuiz = store.getState().landingPage.section;
 
     const section = newQuiz => {
-      if (newQuiz === "colors") {
-        return colors;
-      } else if (newQuiz === "fruits") {
-        return fruits;
-      } else if (newQuiz === "clothes") {
-        return clothes;
-      } else if (newQuiz === "drinks") {
-        return drinks;
-      } else if (newQuiz === "animals") {
-        return animals;
-      } else if (newQuiz === "partsOfBody") {
-        return partsOfBody;
+      switch (newQuiz) {
+        case "colors":
+          return colors;
+        case "fruits":
+          return fruits;
+        case "clothes":
+          return clothes;
+        case "drinks":
+          return drinks;
+        case "animals":
+          return animals;
+        case "bodyParts":
+          return bodyParts;
+        default:
+          break;
       }
     };
 
     let quiz = section(newQuiz);
 
-    setQuizPageAction.setTotal(quiz.length);
-    setQuizPageAction.setCurrentWord(quiz[nr].word);
-    setQuizPageAction.setImg(quiz[nr].img);
-    setQuizPageAction.setCorrectAnswer(false);
-    setQuizPageAction.setWrongAnswer(false);
-    setQuizPageAction.setDisableButton(false);
-    setQuizPageAction.setOptions(this.shuffle(quiz[nr].options));
-    setQuizPageAction.setNr(nr + 1);
+    setTotal(quiz.length);
+    setCurrentWord(quiz[nr].word);
+    setImg(quiz[nr].img);
+    setCorrectAnswer(false);
+    setWrongAnswer(false);
+    setDisableButton(false);
+    setOptions(this.shuffle(quiz[nr].options));
+    setNr(nr + 1);
   };
 
   // Shuffle the array of options:
@@ -80,28 +90,24 @@ export class Quiz extends React.Component {
     let score = store.getState().quizPage.score;
 
     let answer = e.currentTarget.innerText;
-    let element = document.getElementById(answer);
+    setChosenAnswer(answer);
+    // let element = document.getElementById(answer);
 
     if (answer === currentWord) {
-      setQuizPageAction.setScore(score + 1);
-      setQuizPageAction.setCorrectAnswer(true);
-      setQuizPageAction.setDisableButton(true);
+      setScore(score + 1);
+      setCorrectAnswer(true);
+      setDisableButton(true);
 
       setTimeout(() => {
-        element.classList.toggle("correct-answer");
         this.nextQuestion();
       }, 1000);
-      element.classList.toggle("correct-answer");
     } else {
-      setQuizPageAction.setWrongAnswer(false);
-      setQuizPageAction.setDisableButton(false);
+      setWrongAnswer(true);
+      setDisableButton(true);
 
       setTimeout(() => {
-        element.classList.toggle("wrong-answer");
-        setQuizPageAction.setWrongAnswer(false);
         this.nextQuestion();
       }, 1000);
-      element.classList.toggle("wrong-answer");
     }
   }
 
@@ -111,7 +117,7 @@ export class Quiz extends React.Component {
 
     // Check if quiz is completed:
     if (nr === total) {
-      setQuizPageAction.setCompleted(true);
+      setCompleted(true);
     } else {
       // Assign values to state for the next word:
       this.createNewQuestion(nr);
@@ -119,21 +125,24 @@ export class Quiz extends React.Component {
   }
 
   render() {
-    let disableButton = store.getState().quizPage.getStatedisableButton;
-    let correctAnswer = store.getState().quizPage.correctAnswer;
-    let wrongAnswer = store.getState().quizPage.wrongAnswer;
-    let currentWord = store.getState().quizPage.currentWord;
-    let completed = store.getState().quizPage.completed;
-    let options = store.getState().quizPage.options;
-    let score = store.getState().quizPage.score;
-    let total = store.getState().quizPage.total;
-    let img = store.getState().quizPage.img;
+    const {
+      disableButton,
+      chosenAnswer,
+      correctAnswer,
+      wrongAnswer,
+      currentWord,
+      completed,
+      options,
+      score,
+      total,
+      img
+    } = store.getState().quizPage;
 
     if (completed === true)
       return (
         <div className="resultImage">
-          <a
-            href="/"
+          <Link
+            to="/"
             style={{
               fontFamily: "Chewy",
               fontSize: "30px",
@@ -142,11 +151,13 @@ export class Quiz extends React.Component {
             }}
           >
             Home
-          </a>
-          <br style={{ marginBottom: "5em" }} />
-          <div style={{ fontFamily: "Chewy", color: "red" }}>
-            <br />
-            Quiz completed! You got {score} out of {total} right!
+          </Link>
+          <div>
+            <p>
+              Quiz completed!
+              <br />
+              You got {score} out of {total} right!
+            </p>
           </div>
         </div>
       );
@@ -154,6 +165,7 @@ export class Quiz extends React.Component {
     return (
       <Question
         word={currentWord}
+        chosenAnswer={chosenAnswer}
         imgUrl={img}
         options={options}
         correctAnswer={correctAnswer}
@@ -169,6 +181,7 @@ const mapStateToProps = state => {
   const { quizPage, landingPage } = state;
   return {
     currentWord: quizPage.currentWord,
+    chosenAnswer: quizPage.chosenAnswer,
     img: quizPage.img,
     correctAnswer: quizPage.correctAnswer,
     wrongAnswer: quizPage.wrongAnswer,
