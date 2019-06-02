@@ -29,6 +29,9 @@ import {
 export class Quiz extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      percentage : 0
+    }
 
     this.checkAnswer = this.checkAnswer.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
@@ -62,6 +65,7 @@ export class Quiz extends React.Component {
     };
 
     let quiz = section(newQuiz);
+    this.calculateProgress(quiz.length)
 
     setTotal(quiz.length);
     setCurrentWord(quiz[nr].word);
@@ -71,7 +75,12 @@ export class Quiz extends React.Component {
     setDisableButton(false);
     setOptions(this.shuffle(quiz[nr].options));
     setNr(nr + 1);
-  };
+  }
+
+  calculateProgress(quizLength) {
+    let percentage = ((1 / quizLength) * 100) * this.props.nr;
+    this.setState({percentage});
+  }
 
   // Shuffle the array of options:
   shuffle(arr) {
@@ -171,6 +180,7 @@ export class Quiz extends React.Component {
         correctAnswer={correctAnswer}
         wrongAnswer={wrongAnswer}
         disableButton={disableButton}
+        percentage={this.state.percentage}
         checkAnswer={this.checkAnswer}
       />
     );

@@ -12,7 +12,8 @@ class Question extends React.PureComponent {
       checkAnswer,
       correctAnswer,
       wrongAnswer,
-      disableButton
+      disableButton,
+      percentage
     } = this.props;
 
     return (
@@ -21,7 +22,7 @@ class Question extends React.PureComponent {
 
         <div className="container">
           <h1 style={{ fontFamily: "Chewy" }}>Find the right choice</h1>
-          <ProgressBar />
+          <ProgressBar percentage={percentage} />
 
           <img
             id="img"
