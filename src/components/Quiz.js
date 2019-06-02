@@ -42,6 +42,17 @@ export class Quiz extends React.Component {
     this.createNewQuestion(0);
   }
 
+  componentWillUnmount() {
+    // When the user leaves the quiz make sure to reset the values:
+    this.resetValues();
+  }
+
+  resetValues() {
+    setCompleted(false);
+    setScore(0);
+    setNr(0);
+  }
+
   createNewQuestion = nr => {
     const newQuiz = store.getState().landingPage.section;
 
@@ -66,7 +77,8 @@ export class Quiz extends React.Component {
 
     let quiz = section(newQuiz);
     this.calculateProgress(quiz.length)
-
+    
+    setCompleted(false);
     setTotal(quiz.length);
     setCurrentWord(quiz[nr].word);
     setImg(quiz[nr].img);
