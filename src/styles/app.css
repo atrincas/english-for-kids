@@ -348,6 +348,7 @@ h1 {
 /* Progress Bar */
 .progress-bar {
   position: relative;
+  margin: 10px auto;
   height: 20px;
   width: 350px;
   border-radius: 50px;
