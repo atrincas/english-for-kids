@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import ProgressBar from './ProgressBar';
 
 class Question extends React.PureComponent {
   render() {
@@ -20,6 +21,7 @@ class Question extends React.PureComponent {
 
         <div className="container">
           <h1 style={{ fontFamily: "Chewy" }}>Find the right choice</h1>
+          <ProgressBar />
 
           <img
             id="img"
