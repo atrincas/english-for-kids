@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import ProgressBar from './ProgressBar';
 
 class Question extends React.PureComponent {
   render() {
@@ -11,7 +12,8 @@ class Question extends React.PureComponent {
       checkAnswer,
       correctAnswer,
       wrongAnswer,
-      disableButton
+      disableButton,
+      percentage
     } = this.props;
 
     return (
@@ -20,6 +22,7 @@ class Question extends React.PureComponent {
 
         <div className="container">
           <h1 style={{ fontFamily: "Chewy" }}>Find the right choice</h1>
+          <ProgressBar percentage={percentage} />
 
           <img
             id="img"

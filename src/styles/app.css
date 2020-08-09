@@ -73,6 +73,9 @@ body {
   .resultImage div p {
     font-size: 1.5rem;
   }
+  #root img {
+    height: 200px;
+  }
 }
 
 @media only screen and (max-width: 550px) {
@@ -218,7 +221,7 @@ h1 {
   display: flex;
   margin: auto;
   width: 80%;
-  height: 400px;
+  height: 300px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border: 1px solid #ddd;
   border-radius: 25px;
@@ -343,4 +346,21 @@ h1 {
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
+}
+
+/* Progress Bar */
+.progress-bar {
+  position: relative;
+  margin: 10px auto;
+  height: 20px;
+  width: 70%;
+  border-radius: 50px;
+  border: 1px solid deepskyblue;
+}
+
+.filler {
+  background: deepskyblue;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
 }
